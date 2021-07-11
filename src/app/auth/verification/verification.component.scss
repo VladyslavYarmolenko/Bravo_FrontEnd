@@ -1,0 +1,84 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F7F7F7;
+  height: 100vh;
+}
+
+.logo-svg {
+  position: absolute;
+  width: 122px;
+  height: 40px;
+  left: 60px;
+  top: 40px;
+
+  background-image: url("../../../assets/images/Union.svg");
+}
+
+.verification {
+  width: 440px;
+  height: 400px;
+  padding: 70px 48px 78px;
+  box-sizing: border-box;
+
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+
+  background-color: #FFFFFF;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &-title {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 132%;
+    margin-bottom: 11px;
+  }
+
+  &-description {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    line-height: 142%;
+    align-items: center;
+    margin-bottom: 40px;
+    color: #414141;
+  }
+
+  &-inputs {
+    display: flex;
+    margin-bottom: 24px;
+    height: 48px;
+  }
+
+  &-field {
+    border: 1px solid #A1A1A1;
+    border-radius: 8px;
+  }
+
+  &-notification {
+    font-size: 12px;
+    line-height: 130%;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #414141;
+  }
+}
+
+.inscription {
+  position: absolute;
+  font-size: 12px;
+  line-height: 130%;
+  letter-spacing: 0.03em;
+  color: #616161;
+}
+
+.separator {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 8px;
+  padding-top: 9px;
+}

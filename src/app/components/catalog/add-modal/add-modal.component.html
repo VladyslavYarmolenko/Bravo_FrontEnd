@@ -1,0 +1,60 @@
+<div class="add-modal">
+  <div class="modal-header">
+    <h1 mat-dialog-title class="modal-title">Add product</h1>
+    <button class="close-modal" [mat-dialog-close]="true">
+      <img src="/assets/images/modal-windows/close.svg">
+    </button>
+  </div>
+
+  <div class="modal-content">
+    <form class="example-form" [formGroup]="addModalGroup" (ngSubmit)="onSubmit()">
+
+      <div class="form-element">
+        <p class="input-title">Product code</p>
+        <input class="modal-input" formControlName="productCode">
+      </div>
+
+      <div class="form-element">
+        <p class="input-title">Name</p>
+        <input class="modal-input" formControlName="name">
+        <p *ngIf="invalid">This product code already exists in the system!</p>
+      </div>
+
+      <div class="units-list">
+        <div class="unit-element">
+          <div class="form-element">
+            <p class="input-title">Unit</p>
+            <input class="modal-input" formControlName="unit">
+          </div>
+          <div class="form-element">
+            <p class="input-title">Price</p>
+            <input class="modal-input" formControlName="price">
+          </div>
+        </div>
+
+        <button class="add-button">
+          <div class="add-image"></div>
+          <p class="add-description">Add unit</p>
+        </button>
+
+        <select class="availability" formControlName="availability">
+          <option>In stock</option>
+          <option>Out of stock</option>
+          <option>Discontinued</option>
+        </select>
+
+        <div class="separator"></div>
+
+        <div class="modal-bottom">
+          <div class="bottom-buttons">
+            <button class="cancel-button">Cancel</button>
+            <button class="add-button_product" type="submit">
+              <div class="add-image_product"></div>
+              <p class="add-description_product">Add product</p>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

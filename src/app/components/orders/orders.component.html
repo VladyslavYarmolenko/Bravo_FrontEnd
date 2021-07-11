@@ -1,0 +1,94 @@
+ <div class="check-button-header">
+    <div class="sidebar-move-button" (click)="moveSidebar()"></div>
+    <p class="description">Orders</p>
+  </div>
+
+  <div class="search-logo"></div>
+  <input class="search" type="text" placeholder="Order, Customer, Notes...">
+
+<table mat-table
+       [dataSource]="ordersArr" multiTemplateDataRows
+       class="mat-elevation-z8">
+
+  <ng-container matColumnDef="orderNo">
+    <th mat-header-cell *matHeaderCellDef>Order No</th>
+    <td mat-cell *matCellDef="let element"> {{element.orderNo}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="customer">
+    <th mat-header-cell *matHeaderCellDef>Customer
+      <div class="sort"></div>
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.customer}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="customerNo">
+    <th mat-header-cell *matHeaderCellDef>Customer No</th>
+    <td mat-cell *matCellDef="let element"> {{element.customerNo}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="items">
+    <th mat-header-cell *matHeaderCellDef>Items</th>
+    <td mat-cell *matCellDef="let element"> {{element.items}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="notes">
+    <th mat-header-cell *matHeaderCellDef>Notes</th>
+    <td mat-cell *matCellDef="let element"> {{element.notes}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="ordered">
+    <th mat-header-cell *matHeaderCellDef>Ordered
+      <div class="sort"></div>
+    </th>
+    <td mat-cell *matCellDef="let element">{{element.ordered}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="reqDelivery">
+    <th mat-header-cell *matHeaderCellDef>Req.Delivery
+      <div class="sort"></div>
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.reqDelivery}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef>Status
+      <div class="sort"></div>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <button *ngIf="!element.status" mat-button class="status-button">Confirm</button>
+      <p *ngIf="element.status" class="element-status">Confirmed</p>
+    </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+      <div class="example-element-detail"
+           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+        <div class="example-element-diagram">
+          <div class="example-element-position"> {{element.orderNo}} </div>
+          <div class="example-element-symbol"> {{element.customer}} </div>
+          <div class="example-element-name"> {{element.customerNo}} </div>
+          <div class="example-element-weight"> {{element.items}} </div>
+          <div class="example-element-position"> {{element.notes}} </div>
+          <div class="example-element-symbol"> {{element.ordered}} </div>
+          <div class="example-element-weight"> {{element.reqDelivery}} </div>
+          <div class="example-element-weight"> {{element.status}}</div>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement = expandedElement === element ? null : element">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[10, 20, 30]">
+</mat-paginator>
