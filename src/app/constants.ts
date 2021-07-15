@@ -2,6 +2,7 @@ export const columnsToDisplayCatalog = ['productCode', 'name', 'unit', 'price', 
 export const columnsToDisplayCustomers = ['customerNo', 'name', 'address', 'deliveryDays'];
 export const columnsToDisplayOrders = ['orderNo', 'customer', 'customerNo', 'items', 'notes', 'ordered', 'reqDelivery', 'status'];
 export const daysArr = ['Mon', 'Tue', 'Wed,', 'Thu', 'Fri', 'Sat', 'Sun'];
+export const addProduct = ['productCode', 'name', 'unit', 'price', 'availability'];
 
 export const routeTypes = {
   orders: 'orders',
