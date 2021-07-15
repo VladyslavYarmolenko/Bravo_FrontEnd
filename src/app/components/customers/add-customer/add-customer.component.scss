@@ -58,32 +58,37 @@
 
 .add-button {
   display: flex;
-  width: 129px;
-  height: 40px;
   justify-content: center;
   align-items: center;
+
+  width: 129px;
+  height: 40px;
+  margin-bottom: 34px;
+
   background-color: #FFFFFF;
 
   border: 1px solid #C4C4C4;
   border-radius: 8px;
-  margin-bottom: 34px;
+
 }
 
 .add-button_product {
-  display: flex;
   width: 177px;
   height: 48px;
+  margin-left: 16px;
+
+  display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1672EC;
-  border: none;
 
+  border: none;
   border-radius: 8px;
-  margin-left: 16px;
+
+  background-color: #1672EC;
 }
 
 .add-image {
-  background-image: url("../../../../assets/images/components-icons/add-icon.svg");
+  background-image: url("~src/assets/images/components-icons/add-icon.svg");
   background-size: cover;
 
   width: 24px;
@@ -91,7 +96,7 @@
 }
 
 .add-image_product {
-  background-image: url("../../../../assets/images/modal-windows/math-plus.svg");
+  background-image: url("~src/assets/images/modal-windows/math-plus.svg");
   background-size: cover;
 
   width: 24px;
@@ -117,36 +122,63 @@
 .availability {
   width: 100%;
   height: 48px;
+  margin-bottom: 16px;
+
   border: 2px solid #C4C4C4;
   border-radius: 8px;
-  margin-bottom: 16px;
 }
 
 .separator {
   width: 100%;
   height: 1px;
-  background-color: #C4C4C4;
   margin-bottom: 6px;
+
+  background-color: #C4C4C4;
 }
 
 .modal-bottom {
   width: 100%;
+
   display: flex;
   justify-content: flex-end;
 }
 
 .bottom-buttons {
   width: 270px;
-  display: flex;
   padding: 8px 0;
+
+  display: flex;
   justify-content: space-between;
 }
 
 .cancel-button {
   width: 90px;
   height: 48px;
-  background-color: #FFFFFF;
   border: 2px solid #C4C4C4;
   border-radius: 8px;
+
   color: #616161;
+  background-color: #FFFFFF;
 }
+
+.functional-header {
+  cursor: pointer;
+}
+
+.modal-textarea {
+  height: 120px;
+  width: 100%;
+  margin-bottom: 34px;
+
+  border: 2px solid #C4C4C4;
+  border-radius: 8px;
+}
+
+mat-checkbox {
+  width: 25%;
+}
+
+.days {
+  padding-bottom: 34px;
+}
+

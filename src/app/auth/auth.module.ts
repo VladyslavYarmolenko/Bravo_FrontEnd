@@ -28,4 +28,4 @@ import { LoginComponent } from './login/login.component';
   ],
 })
 
-export class AuthModule { }
+export class AuthModule {}

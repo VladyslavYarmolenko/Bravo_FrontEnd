@@ -1,13 +1,22 @@
 import { Action } from '@ngrx/store';
 
-
 export enum catalogActionsType {
-  confirmProducts = '[CATALOG] confirmProducts',
+  addNewCatalog = '[CATALOG] addNewCatalogAction',
+  deleteCatalog = '[CATALOG] deleteCatalog',
 }
 
-export class ConfirmProductsAction implements Action {
-  readonly type = catalogActionsType.confirmProducts;
-  constructor(public payload: { code: string }) { }
+export class AddNewCatalogAction implements Action {
+  readonly type = catalogActionsType.addNewCatalog;
+
+  constructor(public payload: { code: string, data: any }) {
+  }
 }
 
-export type CatalogActions = ConfirmProductsAction;
+export class DeleteCatalogAction implements Action {
+  readonly type = catalogActionsType.deleteCatalog;
+
+  constructor(public payload: { code: string }) {
+  }
+}
+
+export type CatalogActions = AddNewCatalogAction | DeleteCatalogAction;

@@ -10,14 +10,15 @@
 .search {
   width: 350px;
   height: 40px;
-  border: 1px solid #E8E8E8;
-  border-radius: 8px;
   margin-bottom: 24px;
   padding-left: 48px;
+
+  border: 1px solid #E8E8E8;
+  border-radius: 8px;
 }
 
 .arrow-image {
-  background-image: url("../../../assets/images/components-icons/arrow-image.svg");
+  background-image: url("~src/assets/images/components-icons/arrow-image.svg");
   background-size: cover;
   display: inline-block;
   position: absolute;
@@ -41,7 +42,7 @@ th {
 }
 
 .search-logo {
-  background-image: url("../../../assets/images/components-icons/search-image.svg");
+  background-image: url("~src/assets/images/components-icons/search-image.svg");
   background-size: cover;
 
   width: 24px;
@@ -61,6 +62,7 @@ th {
 .check-button-header {
   display: flex;
   align-items: center;
+
   margin-bottom: 24px;
 }
 
@@ -73,11 +75,13 @@ th {
 
 .functional-header {
   display: flex;
+
   padding-top: 6px;
+  cursor: pointer;
 }
 
 .add-image {
-  background-image: url("../../../assets/images/components-icons/add-icon.svg");
+  background-image: url("~src/assets/images/components-icons/add-icon.svg");
   background-size: cover;
 
   width: 24px;
@@ -86,20 +90,21 @@ th {
 
 .add-description {
   margin-left: 5px;
+
   font-family: Manrope;
   font-size: 16px;
   font-weight: 600;
+
   color: #1672EC;
 }
 
 .sidebar-move-button {
-  background-image: url("../../../assets/images/sidebar-icons/menu.svg");
+  background-image: url("~src/assets/images/sidebar-icons/menu.svg");
   background-size: cover;
 
   width: 24px;
   height: 24px;
 }
-
 
 table {
   width: 100%;
@@ -129,9 +134,11 @@ tr.example-element-row:not(.example-expanded-row):active {
 .example-element-diagram {
   min-width: 80px;
   border: 2px solid black;
-  padding: 8px;
   font-weight: lighter;
+
   margin: 8px 0;
+  padding: 8px;
+
   height: 104px;
 }
 

@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 
 @Component({
@@ -11,6 +11,7 @@ import { takeUntil } from 'rxjs/operators';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit, OnDestroy {
   public ngUnsubscribe$ = new Subject();
   public isDisabledLoginBtn: boolean;
@@ -33,7 +34,6 @@ export class LoginComponent implements OnInit, OnDestroy {
      .subscribe(
       status => {
         if (status === 'VALID') {
-          console.log(this.formData);
           this.auth.getAccess(this.formData.value.email)
             .pipe(takeUntil(this.ngUnsubscribe$))
             .subscribe(response => {
@@ -53,9 +53,10 @@ export class LoginComponent implements OnInit, OnDestroy {
     );
   }
 
-  redirectToVerification(): void {
-    this.auth.toVerifaicationPage();
+  onLogin(email: any): void {
+    this.auth.onLogin(email);
   }
+
   ngOnDestroy(): void {
     this.ngUnsubscribe$.next();
     this.ngUnsubscribe$.complete();

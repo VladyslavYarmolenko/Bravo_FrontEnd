@@ -10,7 +10,7 @@ mat-sidenav-content {
   width: 110px;
   height: 36px;
   background-size: cover;
-  background-image: url("../../../assets/images/Union.svg");
+  background-image: url("~src/assets/images/Union.svg");
 
   position: absolute;
   top: 20px;
@@ -18,10 +18,12 @@ mat-sidenav-content {
 }
 
 .logo-small {
-  background-image: url("../../../assets/images/logo-small.svg");
+  background-image: url("~src/assets/images/logo-small.svg");
   background-size: cover;
+
   width: 36px;
   height: 38px;
+
   position: absolute;
   left: 10px;
   top: 20px;
@@ -55,36 +57,36 @@ mat-nav-list {
 
 .orders-svg {
   min-width: 24px;
-  background-image: url("../../../assets/images/sidebar-icons/shopping-cart.svg");
+  background-image: url("~src/assets/images/sidebar-icons/shopping-cart.svg");
   background-size: cover;
 
   &_active {
     min-width: 24px;
-    background-image: url("../../../assets/images/sidebar-icons/orders-icon_active.svg");
+    background-image: url("~src/assets/images/sidebar-icons/orders-icon_active.svg");
     background-size: cover;
   }
 }
 
 .catalog-svg {
   min-width: 24px;
-  background-image: url("../../../assets/images/sidebar-icons/catalog-icon.svg");
+  background-image: url("~src/assets/images/sidebar-icons/catalog-icon.svg");
   background-size: cover;
 
   &_active {
     min-width: 24px;
-    background-image: url("../../../assets/images/sidebar-icons/catalog-icon_active.svg");
+    background-image: url("~src/assets/images/sidebar-icons/catalog-icon_active.svg");
     background-size: cover;
   }
 }
 
 .customers-svg {
   min-width: 24px;
-  background-image: url("../../../assets/images/sidebar-icons/customers-icon.svg");
+  background-image: url("~src/assets/images/sidebar-icons/customers-icon.svg");
   background-size: cover;
 
   &_active {
     min-width: 24px;
-    background-image: url("../../../assets/images/sidebar-icons/customers-icon_active.svg");
+    background-image: url("~src/assets/images/sidebar-icons/customers-icon_active.svg");
     background-size: cover;
   }
 }
@@ -99,7 +101,7 @@ mat-nav-list {
   &-logo {
     width: 24px;
     height: 24px;
-    background-image: url("../../../assets/images/sidebar-icons/log-out.svg");
+    background-image: url("~src/assets/images/sidebar-icons/log-out.svg");
     background-size: cover;
   }
 

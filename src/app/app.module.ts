@@ -1,22 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { ComponentsModule } from './components/components.module';
-
-import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { InterceptorService } from './services/auth/interceptor/interceptor.service';
 
+import { reducers, metaReducers } from './reducers';
 
 
 @NgModule({
@@ -43,7 +42,15 @@ import { environment } from '../environments/environment';
     MatFormFieldModule,
     MatInputModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+}

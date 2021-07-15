@@ -1,20 +1,37 @@
 <div class="logo-svg"></div>
 
-  <form class="verification">
-      <p class="verification-title">Please check your email</p>
-      <div class="verification-description">
-        <p>We use this login code so you dont have to</p>
-        <p>remember or type in yet another long password</p>
-      </div>
-      <div class="verification-inputs">
-        <p class="inscription">Your login code</p>
-        <input class="verification-field" type='text'>
-        <div class="separator">-</div>
-        <input class="verification-field" type='text'>
-      </div>
-      <div class="verification-notification">
-        <p>We've sent a 6 digit login code to <strong>example@email.com</strong></p>
-        <p>Can't find it? Check your spam folder.</p>
-      </div>
-  </form>
+<form class="verification" [formGroup]="verificationForm">
+
+  <p class="verification-title">Please check your email</p>
+  <div class="verification-description">
+    <p>We use this login code so you dont have to</p>
+    <p>remember or type in yet another long password</p>
+  </div>
+
+  <div class="verification-inputs">
+    <p class="inscription" [class]="invalidCode? 'invalid-inscription' : ''">Your login code</p>
+    <input formControlName="firstInput"
+           [class]="invalidCode? 'invalid-data' : ''"
+           class="verification-field"
+           type='text'
+           minlength="3" maxlength="3"
+    >
+    <p class="verification-invalid" *ngIf="invalidCode">Code is not valid</p>
+
+    <div class="separator">-</div>
+    <input formControlName="secondInput"
+           [class]="invalidCode? 'invalid-data' : ''"
+           class="verification-field"
+           type='text'
+           minlength="3"
+           maxlength="3"
+    >
+  </div>
+
+  <div class="verification-notification">
+    <p>We've sent a 6 digit login code to <strong>example@email.com</strong></p>
+    <p>Can't find it? Check your spam folder.</p>
+  </div>
+
+</form>
 

@@ -1,14 +1,12 @@
- <div class="check-button-header">
-    <div class="sidebar-move-button" (click)="moveSidebar()"></div>
-    <p class="description">Orders</p>
-  </div>
+<div class="check-button-header">
+  <div class="sidebar-move-button" (click)="moveSidebar()"></div>
+  <p class="description">Orders</p>
+</div>
 
-  <div class="search-logo"></div>
-  <input class="search" type="text" placeholder="Order, Customer, Notes...">
+<div class="search-logo"></div>
+<input class="search" type="text" placeholder="Order, Customer, Notes...">
 
-<table mat-table
-       [dataSource]="ordersArr" multiTemplateDataRows
-       class="mat-elevation-z8">
+<table mat-table [dataSource]="ordersArr" multiTemplateDataRows class="mat-elevation-z8">
 
   <ng-container matColumnDef="orderNo">
     <th mat-header-cell *matHeaderCellDef>Order No</th>
@@ -90,5 +88,4 @@
   </tr>
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 </table>
-<mat-paginator [pageSizeOptions]="[10, 20, 30]">
-</mat-paginator>
+<mat-paginator [pageSizeOptions]="[10, 20, 30]"></mat-paginator>

@@ -1,6 +1,7 @@
-import {Action} from '@ngrx/store';
-import { IProduct, ICatalogState } from '../interfaces';
+import { Action } from '@ngrx/store';
+
 import { CatalogActions, catalogActionsType } from './catalog.actions';
+import { ICatalogState } from '../interfaces';
 
 export const catalogNode = 'catalog';
 
@@ -45,14 +46,20 @@ const catalogState: ICatalogState = {
 export const catalogReducer = (state: ICatalogState = catalogState, action: Action): any => {
   const catalogActions = action as CatalogActions;
   switch (catalogActions.type) {
-    case catalogActionsType.confirmProducts:
+
+    case catalogActionsType.addNewCatalog:
       return {
         ...state,
-        [catalogActions.payload.code]: {
-          ...state[catalogActions.payload.code],
-          status: true
-        }
+        [catalogActions.payload.code]: catalogActions.payload.data
       };
+
+    case catalogActionsType.deleteCatalog:
+      const newState = { ...state };
+      delete newState[catalogActions.payload.code];
+      return {
+        ...newState
+      };
+
     default:
       return state;
   }

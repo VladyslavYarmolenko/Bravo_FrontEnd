@@ -7,7 +7,9 @@ export enum ordersActionsType {
 
 export class ConfirmOrdersAction implements Action {
   readonly type = ordersActionsType.confirmOrders;
-  constructor(public payload: { code: string }) { }
+
+  constructor(public payload: { code: string }) {
+  }
 }
 
 export type OrdersActions = ConfirmOrdersAction;

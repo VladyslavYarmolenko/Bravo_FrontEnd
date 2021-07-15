@@ -13,7 +13,7 @@
   left: 60px;
   top: 40px;
 
-  background-image: url("../../../assets/images/Union.svg");
+  background-image: url("~src/assets/images/Union.svg");
 }
 
 .invalid {
@@ -21,22 +21,8 @@
   font-size: 12px;
 }
 
-.invalid-input {
-  border: 2px solid #F5413D !important;
-}
-
-.invalid-input:focus {
-  outline: none;
-}
-
-.invalid-description {
-  position: relative;
-  bottom: 15px;
-  left: 8px;
-}
-
 .invalid-logo {
-  background-image: url("../../../assets/images/invalid.svg");
+  background-image: url("~src/assets/images/invalid.svg");
   background-size: cover;
 
   width: 20px;
@@ -60,9 +46,8 @@
   outline: none;
 }
 
-
 .valid-logo {
-  background-image: url("../../../assets/images/valid.svg");
+  background-image: url("~src/assets/images/valid.svg");
   background-size: cover;
 
   width: 20px;
@@ -131,7 +116,6 @@
   }
 
   &-button {
-    background-color: #73AAF4;
     width: 100%;
     height: 48px;
     box-shadow: 0px 1px 2px rgba(15, 86, 179, 0.2), 0px 2px 4px rgba(15, 86, 179, 0.2);
@@ -144,5 +128,6 @@
     text-transform: capitalize;
 
     color: #DCEAFC;
+    background-color: #73AAF4;
   }
 }

@@ -1,18 +1,15 @@
-import {
-  ActionReducer,
-  ActionReducerMap,
-  createFeatureSelector,
-  createSelector,
-  MetaReducer
-} from '@ngrx/store';
-import { environment } from '../../environments/environment';
+import { ActionReducerMap, createSelector, MetaReducer } from '@ngrx/store';
+
+import { environment } from 'src/environments/environment';
+
 import { ordersNode, ordersReducer } from './orders/orders.reducer';
 import { customersNode, customersReducer } from './customers/customers.reducer';
 import { catalogNode, catalogReducer } from './catalog/catalog.reducer';
-import { ICatalogState, ICustomerState, IOrder, IOrderState } from './interfaces';
 import * as ordersSelector from './orders/orders.selectors';
 import * as customersSelector from './customers/customers.selectors';
 import * as catalogSelector from './catalog/catalog.selectors';
+
+import { ICatalogState, ICustomerState, IOrderState } from './interfaces';
 
 export interface IState {
   [ordersNode]: IOrderState;

@@ -36,8 +36,16 @@ $Bravo-theme: mat-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; padding: 0; font-family: Manrope, sans-serif; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Manrope, sans-serif;
+}
+
 a,
 p,
 ul,

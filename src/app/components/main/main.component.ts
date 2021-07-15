@@ -1,6 +1,7 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { routeTypes } from '../../interfaces';
-import { SidebarService } from '../../services/sidebar.service';
+import { Component, OnInit } from '@angular/core';
+
+import { routeTypes } from 'src/app/constants';
+import { SidebarService } from 'src/app/services/sidebar/sidebar.service';
 import { BehaviorSubject } from 'rxjs';
 
 
@@ -9,10 +10,11 @@ import { BehaviorSubject } from 'rxjs';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
 })
+
 export class MainComponent implements OnInit {
-  activeRoute: string;
-  isSidebarFullWidth: boolean;
-  sideNavState: BehaviorSubject<boolean>;
+  public activeRoute: string;
+  public isSidebarFullWidth: boolean;
+  public sideNavState: BehaviorSubject<boolean>;
 
   constructor(private sidebarService: SidebarService) {
     this.sideNavState = this.sidebarService.sidebarStatus$;
@@ -24,5 +26,6 @@ export class MainComponent implements OnInit {
     this.activeRoute = routeName;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 }

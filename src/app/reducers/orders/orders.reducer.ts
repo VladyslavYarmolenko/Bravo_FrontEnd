@@ -1,6 +1,7 @@
-import {Action} from '@ngrx/store';
-import { IOrderState} from '../interfaces';
-import {OrdersActions, ordersActionsType} from './orders.actions';
+import { Action } from '@ngrx/store';
+
+import { IOrderState } from '../interfaces';
+import { OrdersActions, ordersActionsType } from './orders.actions';
 
 export const ordersNode = 'orders';
 

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { ICatalogState } from '../../../reducers/interfaces';
+import { AddNewCatalogAction, catalogActionsType } from '../../../reducers/catalog/catalog.actions';
 
 @Component({
   selector: 'app-add-modal',
@@ -12,13 +15,26 @@ export class AddModalComponent implements OnInit {
   modalKeysArr = ['productCode', 'name', 'unit', 'price', 'availability'];
 
   public invalid = false;
-  constructor() { }
+  constructor(private store: Store<{state: ICatalogState}>) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.updateControls(this.modalKeysArr);
+    // console.log(this.addModalGroup.value);
+  }
 
+  updateControls(modalNamesArr: any[]): void {
+    modalNamesArr.forEach(elem => {
+      this.addModalGroup
+        .addControl(elem,
+          new FormControl(''));
+    });
+  }
 
   onSubmit(): void {
-    console.log(this.addModalGroup.value);
+    this.store.dispatch(new AddNewCatalogAction({
+      code: this.addModalGroup.get('productCode')?.value,
+      data: this.addModalGroup.value,
+    }));
   }
 
 }

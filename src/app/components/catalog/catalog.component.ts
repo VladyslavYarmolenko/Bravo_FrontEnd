@@ -1,14 +1,19 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { IProduct } from '../../reducers/interfaces';
 import { Subject } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
 import { Store } from '@ngrx/store';
-import { getCatalogState, IState } from '../../reducers';
 import { takeUntil } from 'rxjs/operators';
-import { SidebarService } from '../../services/sidebar.service';
 import { MatDialog } from '@angular/material/dialog';
+
+import { DeleteCatalogAction } from 'src/app/reducers/catalog/catalog.actions';
+import { getCatalogState, IState } from 'src/app/reducers';
+import { SidebarService } from 'src/app/services/sidebar/sidebar.service';
+import { IProduct } from 'src/app/reducers/interfaces';
+import { columnsToDisplayCatalog } from 'src/app/constants';
+
 import { AddModalComponent } from './add-modal/add-modal.component';
+
 
 @Component({
   selector: 'app-catalog',
@@ -19,10 +24,8 @@ import { AddModalComponent } from './add-modal/add-modal.component';
 export class CatalogComponent implements OnInit, AfterViewInit {
   public productsArr: MatTableDataSource<IProduct>;
   public ngUnsubscribe$ = new Subject<void>();
-
-
-  columnsToDisplay = ['productCode', 'name', 'unit', 'price', 'availability', 'actions'];
-  expandedElement: IProduct| null;
+  public expandedElement: IProduct | null;
+  public columnsToDisplay = columnsToDisplayCatalog;
 
   @ViewChild(MatPaginator) paginator: MatPaginator | null;
 
@@ -51,5 +54,9 @@ export class CatalogComponent implements OnInit, AfterViewInit {
     this.dialog.open(AddModalComponent, {
       data: {}
     });
+  }
+
+  removeProduct(productCode: string): void {
+    this.store.dispatch(new DeleteCatalogAction({ code: productCode }));
   }
 }

@@ -1,6 +1,7 @@
-import {Action} from '@ngrx/store';
-import {ICustomer, ICustomerState} from '../interfaces';
-import {CustomersActions, customersActionsType} from './customers.actions';
+import { Action } from '@ngrx/store';
+
+import { CustomersActions, customersActionsType } from './customers.actions';
+import { ICustomerState } from '../interfaces';
 
 export const customersNode = 'customers';
 
@@ -29,6 +30,7 @@ export const customersReducer = (state: ICustomerState = customersState, action:
           ...state[customersActions.payload.code],
           status: true
         }
+
       };
     default:
       return state;

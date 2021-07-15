@@ -1,36 +1,34 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { ICustomer, IOrder } from '../../reducers/interfaces';
 import { Subject } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
 import { Store } from '@ngrx/store';
-import { getCustomersState, getOrdersState, IState } from '../../reducers';
 import { takeUntil } from 'rxjs/operators';
-import { animate, state, style, transition, trigger } from '@angular/animations';
-import { SidebarService } from '../../services/sidebar.service';
+import { MatDialog } from '@angular/material/dialog';
+
+import { getCustomersState, IState } from 'src/app/reducers';
+import { ICustomer } from 'src/app/reducers/interfaces';
+import { SidebarService } from 'src/app/services/sidebar/sidebar.service';
+import { columnsToDisplayCustomers } from 'src/app/constants';
+
+import { AddCustomerComponent } from './add-customer/add-customer.component';
+
 
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.scss'],
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),
-  ],
 })
+
 export class CustomersComponent implements OnInit, AfterViewInit {
   public customersArr: MatTableDataSource<ICustomer>;
   public ngUnsubscribe$ = new Subject<void>();
-
-  columnsToDisplay = ['customerNo', 'name', 'address', 'deliveryDays'];
-  expandedElement: ICustomer | null;
+  public columnsToDisplay = columnsToDisplayCustomers;
+  public expandedElement: ICustomer | null;
 
   @ViewChild(MatPaginator) paginator: MatPaginator | null;
 
-  constructor(private store: Store<IState>, private sidebarService: SidebarService) {
+  constructor(private store: Store<IState>, private sidebarService: SidebarService, public dialog: MatDialog) {
     this.customersArr = new MatTableDataSource<ICustomer>();
     this.expandedElement = null;
     this.paginator = null;
@@ -49,5 +47,11 @@ export class CustomersComponent implements OnInit, AfterViewInit {
 
   moveSidebar(): void {
     this.sidebarService.changeSideBarStatus();
+  }
+
+  openAddModal(): void {
+    this.dialog.open(AddCustomerComponent, {
+      data: {}
+    });
   }
 }

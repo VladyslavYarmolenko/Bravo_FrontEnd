@@ -1,33 +1,36 @@
 <div class="logo-svg"></div>
 
-  <form class="auth" [formGroup]="formData">
+<form class="auth" [formGroup]="formData">
 
-    <p class="auth-title">Log In</p>
+  <p class="auth-title">Log In</p>
 
-    <span class="auth-label"
-          [class]="isAuthorized === 'isNotAuth'? 'invalid'
-          : isAuthorized === 'Authorized'? 'valid' : ''"
-          >Your Email
-    </span>
+  <span class="auth-label"
+        [class]="isAuthorized === 'isNotAuth'? 'invalid': isAuthorized === 'Authorized'? 'valid' : ''">Your Email
+  </span>
 
-    <div *ngIf="isAuthorized === 'isNotAuth'" class="invalid-logo"></div>
-    <div *ngIf="isAuthorized === 'Authorized'" class="valid-logo"></div>
-    <input type="email"
-           class="auth-input"
-           matInput placeholder="email@example.com"
-           formControlName="email"
-           [class]="isAuthorized === 'isNotAuth'? 'invalid-input'
+  <div *ngIf="isAuthorized === 'isNotAuth'" class="invalid-logo"></div>
+  <div *ngIf="isAuthorized === 'Authorized'" class="valid-logo"></div>
+  <input type="email"
+         class="auth-input"
+         matInput placeholder="email@example.com"
+         formControlName="email"
+         [class]="isAuthorized === 'isNotAuth'? 'invalid-input'
            : isAuthorized === 'Authorized'? 'valid-input' : ''"
-           >
-    <p *ngIf="isAuthorized === 'isNotAuth'"
-       class="invalid invalid-description">This account doesn`t exist in the system
-    </p>
+  >
+  <p *ngIf="isAuthorized === 'isNotAuth'"
+     class="invalid invalid-description">This account doesn`t exist in the system
+  </p>
 
-    <div class="auth-description">
-      <p>Enter the email you signed up with</p>
-      <p>to receive your login code</p>
-    </div>
+  <div class="auth-description">
+    <p>Enter the email you signed up with</p>
+    <p>to receive your login code</p>
+  </div>
 
-    <button class="auth-button" mat-button type="submit" [disabled]="isDisabledLoginBtn" (click)="redirectToVerification()" >Log In</button>
-  </form>
+  <button class="auth-button" mat-button type="submit"
+          [disabled]="isDisabledLoginBtn"
+          (click)="onLogin(this.formData.value.email)"
+  >Log In
+  </button>
+
+</form>
 

@@ -2,12 +2,12 @@ export interface Email {
   email: string;
 }
 
-export interface AuthResponse {
+export interface SuccessEmail {
   status: string;
 }
 
-export const routeTypes = {
-  orders: 'orders',
-  catalog: 'catalog',
-  customers: 'customers'
-};
+export interface Request {
+  email: Email;
+  code?: number;
+}
+
