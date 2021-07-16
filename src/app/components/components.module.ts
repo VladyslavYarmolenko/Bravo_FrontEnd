@@ -19,7 +19,9 @@ import { MainComponent } from './main/main.component';
 import { OrdersComponent } from './orders/orders.component';
 import { AddModalComponent } from './catalog/add-modal/add-modal.component';
 import { AddCustomerComponent } from './customers/add-customer/add-customer.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 import { SidebarService } from '../services/sidebar/sidebar.service';
+
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { SidebarService } from '../services/sidebar/sidebar.service';
     OrdersComponent,
     AddModalComponent,
     AddCustomerComponent,
+    SidebarComponent,
   ],
   imports: [
     CommonModule,

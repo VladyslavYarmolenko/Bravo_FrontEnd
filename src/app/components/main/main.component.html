@@ -1,29 +1,7 @@
 <mat-sidenav-container autosize>
+
   <mat-sidenav #sidenav class="sidebar" mode="side" opened="true" autosize="true">
-
-    <div [class]="(sideNavState | async)? 'logo-svg' : 'logo-small'"></div>
-    <mat-nav-list>
-      <mat-list-item class="parent route-box" (click)="setActiveRoute('orders')" routerLink="/orders">
-        <mat-icon [class]="activeRoute === 'orders'? 'orders-svg_active' : 'orders-svg'"></mat-icon>
-        <p [class]="activeRoute === 'orders'? 'route-name_active' : 'route-name'"
-           class="full-width" *ngIf="(sideNavState | async)">Orders</p>
-      </mat-list-item>
-      <mat-list-item class="parent route-box" (click)="setActiveRoute('catalog')" routerLink="/catalog">
-        <mat-icon [class]="activeRoute === 'catalog'? 'catalog-svg_active' : 'catalog-svg'"></mat-icon>
-        <p [class]="activeRoute === 'catalog'? 'route-name_active' : 'route-name'"
-           class="full-width" *ngIf="(sideNavState | async)">Catalog</p>
-      </mat-list-item>
-      <mat-list-item class="parent route-box" (click)="setActiveRoute('customers')" routerLink="/customers">
-        <mat-icon [class]="activeRoute === 'customers'? 'customers-svg_active' : 'customers-svg'"></mat-icon>
-        <p [class]="activeRoute === 'customers'? 'route-name_active' : 'route-name'"
-           class="full-width" *ngIf="(sideNavState | async)">Customers</p>
-      </mat-list-item>
-    </mat-nav-list>
-
-    <div class="logout" (click)="logout()">
-      <mat-icon class="logout-logo"></mat-icon>
-      <p [class]="(sideNavState | async)? 'logout-article': 'display-none'">Log Out</p>
-    </div>
+    <app-sidebar></app-sidebar>
   </mat-sidenav>
 
   <mat-sidenav-content class="components">
