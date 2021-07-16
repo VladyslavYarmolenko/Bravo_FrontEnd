@@ -20,7 +20,7 @@
       </mat-list-item>
     </mat-nav-list>
 
-    <div class="logout">
+    <div class="logout" (click)="logout()">
       <mat-icon class="logout-logo"></mat-icon>
       <p [class]="(sideNavState | async)? 'logout-article': 'display-none'">Log Out</p>
     </div>

@@ -53,4 +53,9 @@ export class AuthService {
         });
     }
   }
+
+  onLogout(): void {
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
 }

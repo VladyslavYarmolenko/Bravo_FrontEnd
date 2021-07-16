@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 import { routeTypes } from 'src/app/constants';
 import { SidebarService } from 'src/app/services/sidebar/sidebar.service';
-import { BehaviorSubject } from 'rxjs';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class MainComponent implements OnInit {
   public isSidebarFullWidth: boolean;
   public sideNavState: BehaviorSubject<boolean>;
 
-  constructor(private sidebarService: SidebarService) {
+  constructor(private sidebarService: SidebarService, private auth: AuthService) {
     this.sideNavState = this.sidebarService.sidebarStatus$;
     this.activeRoute = routeTypes.orders;
     this.isSidebarFullWidth = true;
@@ -24,6 +25,10 @@ export class MainComponent implements OnInit {
 
   setActiveRoute(routeName: string): void {
     this.activeRoute = routeName;
+  }
+
+  logout(): void {
+    this.auth.onLogout();
   }
 
   ngOnInit(): void {
