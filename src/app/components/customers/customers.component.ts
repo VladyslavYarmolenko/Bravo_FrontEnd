@@ -7,7 +7,7 @@ import { takeUntil } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 
 import { getCustomersState, IState } from 'src/app/reducers';
-import { ICustomer } from 'src/app/reducers/interfaces';
+import { DeliveryDays, ICustomer, ICustomerState } from 'src/app/reducers/interfaces';
 import { SidebarService } from 'src/app/services/sidebar/sidebar.service';
 import { columnsToDisplayCustomers } from 'src/app/constants';
 
@@ -25,6 +25,7 @@ export class CustomersComponent implements OnInit, AfterViewInit {
   public ngUnsubscribe$ = new Subject<void>();
   public columnsToDisplay = columnsToDisplayCustomers;
   public expandedElement: ICustomer | null;
+  public daysString: any;
 
   @ViewChild(MatPaginator) paginator: MatPaginator | null;
 
@@ -47,6 +48,16 @@ export class CustomersComponent implements OnInit, AfterViewInit {
 
   moveSidebar(): void {
     this.sidebarService.changeSideBarStatus();
+  }
+
+  getCheckedDays(daysObj: DeliveryDays): string {
+    const resultArr = [];
+    for (const daysObjKey in daysObj) {
+      if (daysObj[daysObjKey] === true) {
+        resultArr.push(daysObjKey);
+      }
+    }
+    return resultArr.join(', ');
   }
 
   openAddModal(): void {

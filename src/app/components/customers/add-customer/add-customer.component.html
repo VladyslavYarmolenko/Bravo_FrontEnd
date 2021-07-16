@@ -18,7 +18,12 @@
         <input class="modal-input" formControlName="name">
       </div>
 
-      <div class="days" formGroupName="days">
+      <div class="form-element">
+        <p class="input-title">Delivery Address</p>
+        <input class="modal-input" formControlName="address">
+      </div>
+
+      <div class="days" formGroupName="deliveryDays">
         <mat-checkbox color="primary" formControlName="Mon">Mon</mat-checkbox>
         <mat-checkbox color="primary" formControlName="Tue">Tue</mat-checkbox>
         <mat-checkbox color="primary" formControlName="Wed">Wed</mat-checkbox>
@@ -28,10 +33,10 @@
         <mat-checkbox color="primary" formControlName="Sun">Sun</mat-checkbox>
       </div>
 
-      <div class="form-element">
-        <p class="input-title">Shortlisted Products</p>
-        <textarea class="modal-textarea" formControlName="shortlistedProducts"></textarea>
-      </div>
+<!--      <div class="form-element">-->
+<!--        <p class="input-title">Shortlisted Products</p>-->
+<!--        <textarea class="modal-textarea" formControlName="shortlistedProducts"></textarea>-->
+<!--      </div>-->
 
       <div class="modal-bottom">
         <div class="bottom-buttons">

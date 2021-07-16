@@ -2,14 +2,15 @@ import { Action } from '@ngrx/store';
 
 
 export enum customersActionsType {
-  confirmCustomers = '[CUSTOMERS] confirmCustomers',
+  addCustomer = '[CUSTOMERS] addCustomer',
 }
 
-export class ConfirmCustomersAction implements Action {
-  readonly type = customersActionsType.confirmCustomers;
 
-  constructor(public payload: { code: string }) {
+export class AddCustomerAction implements Action {
+  readonly type = customersActionsType.addCustomer;
+
+  constructor(public payload: { code: string, data: any }) {
   }
 }
 
-export type CustomersActions = ConfirmCustomersAction;
+export type CustomersActions = AddCustomerAction;

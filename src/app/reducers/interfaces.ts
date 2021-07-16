@@ -17,7 +17,7 @@ export interface ICustomer {
   customerNo: string;
   name: string;
   address: string;
-  deliveryDays: string;
+  deliveryDays: DeliveryDays;
 }
 
 export interface ICustomerState {
@@ -34,4 +34,8 @@ export interface IProduct {
 
 export interface ICatalogState {
   [code: string]: IProduct;
+}
+
+export interface DeliveryDays {
+  [day: string]: boolean;
 }
