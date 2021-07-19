@@ -68,7 +68,6 @@ export class CustomersComponent implements OnInit, AfterViewInit {
 
   editCustomer(customerNumber: string): void {
     const selectedObj = this.customersObj[customerNumber];
-    console.log(selectedObj);
     this.dialog.open(EditCustomerComponent, {
       data: { selectedObj }
     });

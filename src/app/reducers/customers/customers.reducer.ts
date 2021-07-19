@@ -47,9 +47,19 @@ export const customersReducer = (state: ICustomerState = customersState, action:
       };
 
     case customersActionsType.editCustomer:
+      const editState = {...customersState};
+      console.log('customersActions.payload.code', customersActions.payload);
+      console.log('editState', editState);
+
+      delete editState[customersActions.payload.code];
+
+      console.log('RETURN ', {
+      ...editState,
+        [customersActions.payload.data.customerNo]: customersActions.payload.data
+      });
       return {
-        ...state,
-        [customersActions.payload.code]: customersActions.payload.data,
+        ...editState,
+        [customersActions.payload.data.customerNo]: customersActions.payload.data,
       };
     default:
       return state;

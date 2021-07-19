@@ -17,9 +17,11 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class EditCustomerComponent implements OnInit {
   public days = daysArr;
   public editCustomerGroup: FormGroup;
-
+  private customerNo: string;
 
   constructor(public fb: FormBuilder, private store: Store<IState>, @Inject(MAT_DIALOG_DATA) public data: any) {
+    this.customerNo = data.selectedObj.customerNo;
+
     this.editCustomerGroup = fb.group({
       customerNo: new FormControl(data.selectedObj.customerNo, [Validators.required]),
       name: new FormControl(data.selectedObj.name, [Validators.required]),
@@ -37,11 +39,10 @@ export class EditCustomerComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    console.log();
-  }
+  ngOnInit(): void {}
 
   editCustomer(): void {
-    this.store.dispatch(new EditCustomerAction({ code: this.editCustomerGroup.value.customerNo, data: this.editCustomerGroup.value }));
+    this.store.dispatch(new EditCustomerAction({ code: this.customerNo, data: this.editCustomerGroup.value }));
+    this.customerNo = this.editCustomerGroup.value.customerNo;
   }
 }

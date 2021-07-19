@@ -23,6 +23,7 @@ import { SidebarService } from '../services/sidebar/sidebar.service';
 import { AddProductComponent } from './catalog/add-product/add-product.component';
 import { DeleteProductComponent } from './catalog/delete-product/delete-product.component';
 import { EditCustomerComponent } from './customers/edit-customer/edit-customer.component';
+import { ReplaceCatalogComponent } from './catalog/replace-catalog/replace-catalog.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { EditCustomerComponent } from './customers/edit-customer/edit-customer.c
     AddProductComponent,
     DeleteProductComponent,
     EditCustomerComponent,
+    ReplaceCatalogComponent,
   ],
   imports: [
     CommonModule,

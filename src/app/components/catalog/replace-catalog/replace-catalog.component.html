@@ -1,0 +1,24 @@
+<div class="replace-modal">
+  <div class="replace-header">
+    <p class="replace-title">Replace Catalog</p>
+    <button class="close-modal" [mat-dialog-close]="true">
+      <img src="/assets/images/modal-windows/close.svg">
+    </button>
+  </div>
+  <p class="replace-description">Drops the existing catalog and imports the new one</p>
+  <div class="drag-section">
+    <p class="drag-description">Drag or Click here to upload files</p>
+    <p>Note that only CSV fires are supported</p>
+  </div>
+  <div class="download"><strong>Download</strong> our Template as a help</div>
+  <div class="separator"></div>
+  <div class="modal-bottom">
+    <div class="bottom-buttons">
+      <button class="cancel-button" [mat-dialog-close]="true">Cancel</button>
+      <button class="add-button_product" type="submit" [mat-dialog-close]="true">
+        <div class="add-image_product"></div>
+        <p class="add-description_product">Replace catalog</p>
+      </button>
+    </div>
+  </div>
+</div>

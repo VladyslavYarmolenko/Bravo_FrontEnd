@@ -6,7 +6,6 @@ import { Store } from '@ngrx/store';
 import { takeUntil } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 
-import { DeleteCatalogAction } from 'src/app/reducers/catalog/catalog.actions';
 import { getCatalogState, IState } from 'src/app/reducers';
 import { SidebarService } from 'src/app/services/sidebar/sidebar.service';
 import { IProduct } from 'src/app/reducers/interfaces';
@@ -14,6 +13,7 @@ import { columnsToDisplayCatalog } from 'src/app/constants';
 
 import { AddProductComponent } from './add-product/add-product.component';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
+import { ReplaceCatalogComponent } from './replace-catalog/replace-catalog.component';
 
 
 @Component({
@@ -65,5 +65,11 @@ export class CatalogComponent implements OnInit, AfterViewInit {
       }
     });
     // this.store.dispatch(new DeleteCatalogAction({ code: productCode }));
+  }
+
+  openReplaceModal(): void {
+    this.dialog.open(ReplaceCatalogComponent, {
+      data: {}
+    });
   }
 }
