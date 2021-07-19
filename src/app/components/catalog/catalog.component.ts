@@ -12,7 +12,8 @@ import { SidebarService } from 'src/app/services/sidebar/sidebar.service';
 import { IProduct } from 'src/app/reducers/interfaces';
 import { columnsToDisplayCatalog } from 'src/app/constants';
 
-import { AddModalComponent } from './add-modal/add-modal.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { DeleteProductComponent } from './delete-product/delete-product.component';
 
 
 @Component({
@@ -51,12 +52,18 @@ export class CatalogComponent implements OnInit, AfterViewInit {
   }
 
   openAddModal(): void {
-    this.dialog.open(AddModalComponent, {
+    this.dialog.open(AddProductComponent, {
       data: {}
     });
   }
 
-  removeProduct(productCode: string): void {
-    this.store.dispatch(new DeleteCatalogAction({ code: productCode }));
+  removeProduct(productCode: string, productName: string): void {
+    this.dialog.open(DeleteProductComponent, {
+      data: {
+        code: productCode,
+        name: productName,
+      }
+    });
+    // this.store.dispatch(new DeleteCatalogAction({ code: productCode }));
   }
 }

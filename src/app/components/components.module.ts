@@ -17,10 +17,12 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { CustomersComponent } from './customers/customers.component';
 import { MainComponent } from './main/main.component';
 import { OrdersComponent } from './orders/orders.component';
-import { AddModalComponent } from './catalog/add-modal/add-modal.component';
 import { AddCustomerComponent } from './customers/add-customer/add-customer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SidebarService } from '../services/sidebar/sidebar.service';
+import { AddProductComponent } from './catalog/add-product/add-product.component';
+import { DeleteProductComponent } from './catalog/delete-product/delete-product.component';
+import { EditCustomerComponent } from './customers/edit-customer/edit-customer.component';
 
 
 @NgModule({
@@ -29,9 +31,11 @@ import { SidebarService } from '../services/sidebar/sidebar.service';
     CustomersComponent,
     MainComponent,
     OrdersComponent,
-    AddModalComponent,
     AddCustomerComponent,
     SidebarComponent,
+    AddProductComponent,
+    DeleteProductComponent,
+    EditCustomerComponent,
   ],
   imports: [
     CommonModule,

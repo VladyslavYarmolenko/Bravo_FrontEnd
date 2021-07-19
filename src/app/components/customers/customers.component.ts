@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { Subject } from 'rxjs';
+import { config, Subject } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
 import { Store } from '@ngrx/store';
 import { takeUntil } from 'rxjs/operators';
@@ -12,6 +12,7 @@ import { SidebarService } from 'src/app/services/sidebar/sidebar.service';
 import { columnsToDisplayCustomers } from 'src/app/constants';
 
 import { AddCustomerComponent } from './add-customer/add-customer.component';
+import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 
 
 @Component({
@@ -22,6 +23,7 @@ import { AddCustomerComponent } from './add-customer/add-customer.component';
 
 export class CustomersComponent implements OnInit, AfterViewInit {
   public customersArr: MatTableDataSource<ICustomer>;
+  public customersObj: any;
   public ngUnsubscribe$ = new Subject<void>();
   public columnsToDisplay = columnsToDisplayCustomers;
   public expandedElement: ICustomer | null;
@@ -33,13 +35,17 @@ export class CustomersComponent implements OnInit, AfterViewInit {
     this.customersArr = new MatTableDataSource<ICustomer>();
     this.expandedElement = null;
     this.paginator = null;
+
   }
 
   ngOnInit(): void {
     this.store.select(getCustomersState)
       .pipe(
         takeUntil(this.ngUnsubscribe$))
-      .subscribe(dataObj => this.customersArr.data = Object.values(dataObj));
+      .subscribe(dataObj => {
+        this.customersArr.data = Object.values(dataObj);
+        this.customersObj = { ...dataObj };
+      });
   }
 
   ngAfterViewInit(): void {
@@ -58,6 +64,14 @@ export class CustomersComponent implements OnInit, AfterViewInit {
       }
     }
     return resultArr.join(', ');
+  }
+
+  editCustomer(customerNumber: string): void {
+    const selectedObj = this.customersObj[customerNumber];
+    console.log(selectedObj);
+    this.dialog.open(EditCustomerComponent, {
+      data: { selectedObj }
+    });
   }
 
   openAddModal(): void {

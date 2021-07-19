@@ -209,3 +209,12 @@ tr.example-element-row:not(.example-expanded-row):active {
 .add-product {
   cursor: pointer;
 }
+
+td {
+  border-bottom: 1px solid #E0E0E0 !important;
+}
+
+
+table {
+  border-bottom: none;
+}

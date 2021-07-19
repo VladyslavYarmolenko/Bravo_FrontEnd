@@ -8,12 +8,12 @@ import { addProduct } from 'src/app/constants';
 
 
 @Component({
-  selector: 'app-add-modal',
-  templateUrl: './add-modal.component.html',
-  styleUrls: ['./add-modal.component.scss']
+  selector: 'app-add-product',
+  templateUrl: './add-product.component.html',
+  styleUrls: ['./add-product.component.scss']
 })
 
-export class AddModalComponent implements OnInit {
+export class AddProductComponent implements OnInit {
   public addModalGroup: FormGroup = new FormGroup({});
   public modalKeysArr = addProduct;
   public invalid = false;

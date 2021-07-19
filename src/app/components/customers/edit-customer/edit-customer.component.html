@@ -1,0 +1,53 @@
+<div class="add-modal">
+  <div class="modal-header">
+    <h1 mat-dialog-title class="modal-title">Edit customer</h1>
+    <button class="close-modal" [mat-dialog-close]="true">
+      <img src="/assets/images/modal-windows/close.svg">
+    </button>
+  </div>
+
+  <div class="modal-content">
+    <form class="example-form" [formGroup]="editCustomerGroup" (ngSubmit)="editCustomer()">
+      <div class="form-element">
+        <p class="input-title">Customer No</p>
+        <input class="modal-input" formControlName="customerNo">
+      </div>
+
+      <div class="form-element">
+        <p class="input-title">Name</p>
+        <input class="modal-input" formControlName="name">
+      </div>
+
+      <div class="form-element">
+        <p class="input-title">Delivery Address</p>
+        <input class="modal-input" formControlName="address">
+      </div>
+
+      <div class="days" formGroupName="deliveryDays">
+        <mat-checkbox color="primary" formControlName="Mon">Mon</mat-checkbox>
+        <mat-checkbox color="primary" formControlName="Tue">Tue</mat-checkbox>
+        <mat-checkbox color="primary" formControlName="Wed">Wed</mat-checkbox>
+        <mat-checkbox color="primary" formControlName="Thu">Thu</mat-checkbox>
+        <mat-checkbox color="primary" formControlName="Fri">Fri</mat-checkbox>
+        <mat-checkbox color="primary" formControlName="Sat">Sut</mat-checkbox>
+        <mat-checkbox color="primary" formControlName="Sun">Sun</mat-checkbox>
+      </div>
+
+      <!--      <div class="form-element">-->
+      <!--        <p class="input-title">Shortlisted Products</p>-->
+      <!--        <textarea class="modal-textarea" formControlName="shortlistedProducts"></textarea>-->
+      <!--      </div>-->
+
+      <div class="modal-bottom">
+        <div class="bottom-buttons">
+          <button class="cancel-button">Cancel</button>
+          <button class="add-button_product" type="submit">
+            <div class="edit-image_product"></div>
+            <p class="add-description_product">Save</p>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

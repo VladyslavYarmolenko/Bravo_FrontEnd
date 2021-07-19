@@ -1,0 +1,19 @@
+<div class="delete">
+  <div class="delete-header">
+    <p class="delete-title">Delete product?</p>
+    <button class="close-modal" [mat-dialog-close]="true">
+      <img src="/assets/images/modal-windows/close.svg">
+    </button>
+  </div>
+  <p class="delete-description">Are you sure you want to delete <strong>{{data.name}}</strong> from the catalog?</p>
+  <div class="separator"></div>
+  <div class="modal-bottom">
+    <div class="bottom-buttons">
+      <button class="cancel-button" [mat-dialog-close]="true">Cancel</button>
+      <button class="delete-button_product" type="submit" (click)="removeProduct()" [mat-dialog-close]="true">
+        <div class="trash-image"></div>
+        <p class="add-description_product">Delete</p>
+      </button>
+    </div>
+  </div>
+</div>

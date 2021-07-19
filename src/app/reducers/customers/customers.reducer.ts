@@ -2,7 +2,7 @@ import { Action } from '@ngrx/store';
 
 import { CustomersActions, customersActionsType } from './customers.actions';
 import { ICustomerState } from '../interfaces';
-import { FormControl } from '@angular/forms';
+
 
 export const customersNode = 'customers';
 
@@ -41,6 +41,12 @@ export const customersReducer = (state: ICustomerState = customersState, action:
   const customersActions = action as CustomersActions;
   switch (customersActions.type) {
     case customersActionsType.addCustomer:
+      return {
+        ...state,
+        [customersActions.payload.code]: customersActions.payload.data,
+      };
+
+    case customersActionsType.editCustomer:
       return {
         ...state,
         [customersActions.payload.code]: customersActions.payload.data,
