@@ -70,7 +70,7 @@ export class CustomersComponent implements OnInit, AfterViewInit {
     const selectedObj = this.customersObj[customerNumber];
     this.dialog.open(EditCustomerComponent, {
       data: { selectedObj }
-    });
+    }).afterClosed().subscribe(result => console.log(result));
   }
 
   openAddModal(): void {

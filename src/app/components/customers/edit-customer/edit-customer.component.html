@@ -40,8 +40,8 @@
 
       <div class="modal-bottom">
         <div class="bottom-buttons">
-          <button class="cancel-button">Cancel</button>
-          <button class="add-button_product" type="submit">
+          <button class="cancel-button" [mat-dialog-close]="false">Cancel</button>
+          <button class="add-button_product" type="submit" [mat-dialog-close]="true">
             <div class="edit-image_product"></div>
             <p class="add-description_product">Save</p>
           </button>
