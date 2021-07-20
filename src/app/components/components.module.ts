@@ -12,6 +12,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { CatalogComponent } from './catalog/catalog.component';
 import { CustomersComponent } from './customers/customers.component';
@@ -24,6 +26,7 @@ import { AddProductComponent } from './catalog/add-product/add-product.component
 import { DeleteProductComponent } from './catalog/delete-product/delete-product.component';
 import { EditCustomerComponent } from './customers/edit-customer/edit-customer.component';
 import { ReplaceCatalogComponent } from './catalog/replace-catalog/replace-catalog.component';
+
 
 
 @NgModule({
@@ -53,14 +56,16 @@ import { ReplaceCatalogComponent } from './catalog/replace-catalog/replace-catal
     MatButtonModule,
     ReactiveFormsModule,
     MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   exports: [
     MainComponent,
   ],
   providers: [
     SidebarService,
+    MatDatepickerModule,
   ]
 })
 
-export class ComponentsModule {
-}
+export class ComponentsModule {}

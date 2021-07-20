@@ -10,6 +10,7 @@ import { SidebarService } from 'src/app/services/sidebar/sidebar.service';
 import { IOrder } from 'src/app/reducers/interfaces';
 import { getOrdersState, IState } from 'src/app/reducers/index';
 import { columnsToDisplayOrders } from 'src/app/constants';
+import { FormControl, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -30,6 +31,7 @@ export class OrdersComponent implements OnInit, AfterViewInit {
   public ngUnsubscribe$ = new Subject<void>();
   public columnsToDisplay = columnsToDisplayOrders;
   public expandedElement: IOrder | null;
+  public rangePickerGroup: FormGroup;
 
   @ViewChild(MatPaginator) paginator: MatPaginator | null;
 
@@ -37,6 +39,10 @@ export class OrdersComponent implements OnInit, AfterViewInit {
     this.ordersArr = new MatTableDataSource<IOrder>();
     this.expandedElement = null;
     this.paginator = null;
+    this.rangePickerGroup = new FormGroup({
+      start : new FormControl(''),
+      end : new FormControl(''),
+    });
   }
 
   ngOnInit(): void {
