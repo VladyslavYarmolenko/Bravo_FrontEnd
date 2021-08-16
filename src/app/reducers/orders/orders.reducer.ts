@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 
-import { IOrderState } from '../interfaces';
+import { IOrderState } from '../../interfaces';
 import { OrdersActions, ordersActionsType } from './orders.actions';
 
 export const ordersNode = 'orders';
@@ -48,6 +48,10 @@ export const ordersReducer = (state: IOrderState = ordersState, action: Action):
           ...state[ordersActions.payload.code],
           status: true
         }
+      };
+    case ordersActionsType.setFilteredOrders:
+      return {
+        ...ordersActions.payload.newState,
       };
     default:
       return state;

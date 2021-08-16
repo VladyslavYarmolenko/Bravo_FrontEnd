@@ -1,8 +1,10 @@
 import { Action } from '@ngrx/store';
+import { ICatalogState } from '../../interfaces';
 
 export enum catalogActionsType {
   addNewCatalog = '[CATALOG] addNewCatalogAction',
   deleteCatalog = '[CATALOG] deleteCatalog',
+  setFilteredCatalog = '[CATALOG] setFilteredCatalog'
 }
 
 export class AddNewCatalogAction implements Action {
@@ -19,4 +21,11 @@ export class DeleteCatalogAction implements Action {
   }
 }
 
-export type CatalogActions = AddNewCatalogAction | DeleteCatalogAction;
+export class SetFilteredCatalogAction implements Action {
+  readonly type = catalogActionsType.setFilteredCatalog;
+
+  constructor(public payload: { newState: ICatalogState }) {
+  }
+}
+
+export type CatalogActions = AddNewCatalogAction | DeleteCatalogAction | SetFilteredCatalogAction;

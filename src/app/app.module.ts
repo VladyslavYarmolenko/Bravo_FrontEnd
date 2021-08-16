@@ -16,7 +16,8 @@ import { environment } from '../environments/environment';
 import { InterceptorService } from './services/auth/interceptor/interceptor.service';
 
 import { reducers, metaReducers } from './reducers';
-
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,8 @@ import { reducers, metaReducers } from './reducers';
     HttpClientModule,
     MatSidenavModule,
     ComponentsModule,
+    MatAutocompleteModule,
+    MatMenuModule,
     StoreModule.forRoot(reducers, {
       metaReducers
     }),

@@ -6,7 +6,6 @@ export enum customersActionsType {
   editCustomer = '[CUSTOMERS] editCustomer'
 }
 
-
 export class AddCustomerAction implements Action {
   readonly type = customersActionsType.addCustomer;
 

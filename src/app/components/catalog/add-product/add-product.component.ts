@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { ICatalogState } from 'src/app/reducers/interfaces';
+import { ICatalogState } from 'src/app/interfaces';
 import { AddNewCatalogAction } from 'src/app/reducers/catalog/catalog.actions';
 import { addProduct } from 'src/app/constants';
 
@@ -27,9 +27,7 @@ export class AddProductComponent implements OnInit {
 
   updateControls(modalNamesArr: any[]): void {
     modalNamesArr.forEach(elem => {
-      this.addModalGroup
-        .addControl(elem,
-          new FormControl(''));
+      this.addModalGroup.addControl(elem, new FormControl(''));
     });
   }
 

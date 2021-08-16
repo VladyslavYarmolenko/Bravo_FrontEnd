@@ -5,7 +5,7 @@
   <p class="auth-title">Log In</p>
 
   <span class="auth-label"
-        [class]="isAuthorized === 'isNotAuth'? 'invalid': isAuthorized === 'Authorized'? 'valid' : ''">Your Email
+        [class]="isAuthorized === 'isNotAuth' ? 'invalid': isAuthorized === 'Authorized' ? 'valid' : ''">Your Email
   </span>
 
   <div *ngIf="isAuthorized === 'isNotAuth'" class="invalid-logo"></div>
@@ -14,8 +14,8 @@
          class="auth-input"
          matInput placeholder="email@example.com"
          formControlName="email"
-         [class]="isAuthorized === 'isNotAuth'? 'invalid-input'
-           : isAuthorized === 'Authorized'? 'valid-input' : ''"
+         [class]="isAuthorized === 'isNotAuth' ? 'invalid-input'
+           : isAuthorized === 'Authorized' ? 'valid-input' : ''"
   >
   <p *ngIf="isAuthorized === 'isNotAuth'"
      class="invalid invalid-description">This account doesn`t exist in the system

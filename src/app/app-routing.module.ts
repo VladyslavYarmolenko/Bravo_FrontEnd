@@ -7,7 +7,7 @@ import { AppGuard } from './guard/app-guard';
 
 
 const routes: Routes = [
-  { path: '', loadChildren: () => import('src/app/components/components.module').then(m => m.ComponentsModule), canActivate: [AppGuard]},
+  { path: '', loadChildren: () => import('src/app/components/components.module').then(m => m.ComponentsModule), },
   { path: 'login', component: LoginComponent },
   { path: 'verification', component: VerificationComponent },
 ];

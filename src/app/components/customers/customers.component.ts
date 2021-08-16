@@ -1,18 +1,22 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { config, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
 import { Store } from '@ngrx/store';
 import { takeUntil } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 
 import { getCustomersState, IState } from 'src/app/reducers';
-import { DeliveryDays, ICustomer, ICustomerState } from 'src/app/reducers/interfaces';
+import { DeliveryDays, ICustomer } from 'src/app/interfaces';
 import { SidebarService } from 'src/app/services/sidebar/sidebar.service';
 import { columnsToDisplayCustomers } from 'src/app/constants';
 
 import { AddCustomerComponent } from './add-customer/add-customer.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
+import { FormControl } from '@angular/forms';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
 
 
 @Component({

@@ -1,8 +1,10 @@
 import { Action } from '@ngrx/store';
+import { IOrderState } from '../../interfaces';
 
 
 export enum ordersActionsType {
   confirmOrders = '[ORDERS] confirmOrders',
+  setFilteredOrders = '[ORDERS] setFilteredOrders'
 }
 
 export class ConfirmOrdersAction implements Action {
@@ -12,4 +14,11 @@ export class ConfirmOrdersAction implements Action {
   }
 }
 
-export type OrdersActions = ConfirmOrdersAction;
+export class SetFilteredOrdersAction implements Action {
+  readonly type = ordersActionsType.setFilteredOrders;
+
+  constructor(public payload: { newState: IOrderState }) {
+  }
+}
+
+export type OrdersActions = ConfirmOrdersAction | SetFilteredOrdersAction;

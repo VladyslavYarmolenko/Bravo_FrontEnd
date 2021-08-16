@@ -1,3 +1,3 @@
-import { ICatalogState } from '../interfaces';
+import { ICatalogState } from '../../interfaces';
 
 export const selectCatalogState = (state: ICatalogState): ICatalogState => state;

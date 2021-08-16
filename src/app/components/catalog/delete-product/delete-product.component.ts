@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { ICatalogState } from '../../../reducers/interfaces';
+import { ICatalogState } from '../../../interfaces';
 import { DeleteCatalogAction } from '../../../reducers/catalog/catalog.actions';
 
 
@@ -12,10 +12,11 @@ import { DeleteCatalogAction } from '../../../reducers/catalog/catalog.actions';
 })
 export class DeleteProductComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-              public dialogRef: MatDialogRef<any>,
-              public store: Store<{ state: ICatalogState }>) {
-  }
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public dialogRef: MatDialogRef<any>,
+    public store: Store<{ state: ICatalogState }>
+  ) {}
 
   ngOnInit(): void {
   }

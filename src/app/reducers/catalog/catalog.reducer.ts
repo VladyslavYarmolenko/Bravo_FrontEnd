@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 
 import { CatalogActions, catalogActionsType } from './catalog.actions';
-import { ICatalogState } from '../interfaces';
+import { ICatalogState } from '../../interfaces';
 
 export const catalogNode = 'catalog';
 
@@ -11,35 +11,35 @@ const catalogState: ICatalogState = {
     name: 'Apples',
     unit: 'kg',
     price: 2.03,
-    availability: 'In stock',
+    availability: 'In stock'
   },
   TOM53: {
     productCode: 'TOM53',
     name: 'Tomatos',
     unit: 'box',
     price: 12.03,
-    availability: 'In stock',
+    availability: 'In stock'
   },
   APP124: {
     productCode: 'APP124',
     name: 'Apples',
     unit: 'kg',
     price: 2.03,
-    availability: 'In stock',
+    availability: 'In stock'
   },
   CUC997: {
     productCode: 'CUC997',
     name: 'Cucumbers',
     unit: 'pcs',
     price: 0.52,
-    availability: 'Out of stock',
+    availability: 'Out of stock'
   },
   PIN112: {
     productCode: 'PIN112',
     name: 'Pineapple',
     unit: 'pcs',
     price: 3.20,
-    availability: 'Discontinued',
+    availability: 'Discontinued'
   }
 };
 
@@ -58,6 +58,11 @@ export const catalogReducer = (state: ICatalogState = catalogState, action: Acti
       delete newState[catalogActions.payload.code];
       return {
         ...newState
+      };
+
+    case catalogActionsType.setFilteredCatalog:
+      return {
+        ...catalogActions.payload.newState
       };
 
     default:

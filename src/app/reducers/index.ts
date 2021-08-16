@@ -9,7 +9,7 @@ import * as ordersSelector from './orders/orders.selectors';
 import * as customersSelector from './customers/customers.selectors';
 import * as catalogSelector from './catalog/catalog.selectors';
 
-import { ICatalogState, ICustomerState, IOrderState } from './interfaces';
+import { ICatalogState, ICustomerState, IOrderState } from '../interfaces';
 
 export interface IState {
   [ordersNode]: IOrderState;

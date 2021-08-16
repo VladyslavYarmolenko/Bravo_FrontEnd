@@ -154,3 +154,12 @@ table {
   opacity: 0;
   position: absolute;
 }
+
+::ng-deep.mat-menu-panel {
+  max-width: 1000px !important;
+}
+
+.chips-menu {
+  width: 382px;
+  height: 72px;
+}
